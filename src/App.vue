@@ -1,28 +1,50 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang='html'>
+<main id="app">
+  <h1>Breaking Bad</h1>
+</main>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  // name: 'app', 
+  // data () {
+  //   return {
+  //     characters: [],
+  //     selectedCharacters: null,
+  //     favouriteCharacters: [],
+  //     episodes: [],
+  //     selectedEpisode: null, 
+  //   }
+  // },
+
+  // components: {
+  //   'character-list': CharacterList,
+  //   'character-detail': CharacterDetail,
+  //   'favourite-character': FavouriteCharacter,
+  //   'episode-list': EpisodeList,
+  //   'episode-detail': EpisodeDetail
+  // },
+
+  mounted() {
+    // character fetch list
+    fetch('https://www.breakingbadapi.com/api/characters')
+    .then(res => res.json())
+    .then(characters => this.characters = characters)
+
+
+    // episode fetch list
+    fetch('https://www.breakingbadapi.com/api/episodes')
+    .then(res => res.json())
+    .then(episodes => this.episodes = episodes)
+  },
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='css' scoped>
+
+
+
+
 </style>
