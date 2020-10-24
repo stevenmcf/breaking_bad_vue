@@ -12,6 +12,12 @@
 
     <favourite-characters :favouriteCharacters='favouriteCharacters'></favourite-characters>
 
+ <label for="selected_episode">Select an Episode</label>
+      <select id="selected_episode" v-model="selectedEpisode">
+          <option disabled value="">Select a episode</option>
+          <option v-for="(episode, index) in episodes" :character="episode" :key="index" :value="episode">{{ episode.title}} </option>
+      </select>
+
 </main>
   
 </template>

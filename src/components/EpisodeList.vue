@@ -9,8 +9,8 @@ export default {
     name: "episode-list",
     props: ['episodes'],
     // components: {
-    //     EpisodeList
-
+    //     EpisodeListItem
+    // }
 }
 
 </script>
