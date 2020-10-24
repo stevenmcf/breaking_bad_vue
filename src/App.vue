@@ -7,16 +7,16 @@
 
 <script>
 export default {
-  // name: 'app', 
-  // data () {
-  //   return {
-  //     characters: [],
-  //     selectedCharacters: null,
-  //     favouriteCharacters: [],
-  //     episodes: [],
-  //     selectedEpisode: null, 
-  //   }
-  // },
+  name: 'app', 
+  data () {
+    return {
+      characters: [],
+      // selectedCharacters: null,
+      // favouriteCharacters: [],
+      episodes: [],
+      // selectedEpisode: null, 
+    }
+  },
 
   // components: {
   //   'character-list': CharacterList,
@@ -26,6 +26,8 @@ export default {
   //   'episode-detail': EpisodeDetail
   // },
 
+
+// Use mounted to grab the data before app loads. 
   mounted() {
     // character fetch list
     fetch('https://www.breakingbadapi.com/api/characters')
