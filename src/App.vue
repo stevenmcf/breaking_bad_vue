@@ -1,6 +1,11 @@
 <template lang='html'>
 <main id="app">
-  <character-list :characters="characters"> </character-list>
+  <h1>BreakingBad(code)</h1>
+  <!-- <character-list :characters="characters"> </character-list> -->
+  <label for="selected_character">Who's it gonna be ?</label>
+  <select id="selected_character" v-model="selectedCharacter">
+    <option v-for="(character, index) in characters" :character="character" :key="index" :value="character">{{ character.name}} </option>
+  </select>
   <character-detail v-if="selectedCharacter":character="selectedCharacter"></character-detail>
 </main>
   
