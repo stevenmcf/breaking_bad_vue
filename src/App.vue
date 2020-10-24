@@ -1,6 +1,6 @@
 <template lang='html'>
 <main id="app">
-  <character-list></character-list>
+  <character-list :characters="characters"> </character-list>
 </main>
   
 </template>
