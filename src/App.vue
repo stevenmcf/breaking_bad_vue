@@ -8,16 +8,17 @@
 <script>
 
 import CharacterList from './components/CharacterList.vue'
+import { eventBus } from '@/main.js'
 
 export default {
   name: 'app', 
   data () {
     return {
       characters: [],
-      // selectedCharacters: null,
-      // favouriteCharacters: [],
+      selectedCharacter: null,
+      favouriteCharacters: [],
       episodes: [],
-      // selectedEpisode: null, 
+      selectedEpisode: null, 
     }
   },
 
@@ -43,6 +44,11 @@ export default {
     fetch('https://www.breakingbadapi.com/api/episodes')
       .then(res => res.json())
       .then(episodes => this.episodes = episodes)
+
+    eventBus.$on('character-selected', (character) => {
+      this.selectedCharacter = character
+    })
+
   },
 
 }
