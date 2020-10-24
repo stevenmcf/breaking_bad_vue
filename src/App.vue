@@ -1,13 +1,15 @@
 <template lang='html'>
 <main id="app">
   <character-list :characters="characters"> </character-list>
+  <character-detail></character-detail>
 </main>
   
 </template>
 
 <script>
 
-import CharacterList from './components/CharacterList.vue'
+import CharacterList from './components/CharacterList.vue';
+import CharacterDetail from './components/CharacterDetail.vue'
 import { eventBus } from '@/main.js'
 
 export default {
@@ -16,16 +18,16 @@ export default {
     return {
       characters: [],
       selectedCharacter: null,
-      favouriteCharacters: [],
-      episodes: [],
-      selectedEpisode: null, 
+      // favouriteCharacters: [],
+      // episodes: [],
+      // selectedEpisode: null, 
     }
   },
 
 // once child component added, component needs to be confirmed in parent.
   components: {
     'character-list': CharacterList,
-  //   'character-detail': CharacterDetail,
+    'character-detail': CharacterDetail,
   //   'favourite-character': FavouriteCharacter,
   //   'episode-list': EpisodeList,
   //   'episode-detail': EpisodeDetail

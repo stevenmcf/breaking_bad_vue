@@ -1,6 +1,6 @@
 <template>
   <ul>
-      <character-list-item v-for="(character, index) in characters" :key="character" :character="character"></character-list-item>
+      <character-list-item v-for="(character, index) in characters" :character="character" :key="index"></character-list-item>
       
   </ul>
 </template>
@@ -12,12 +12,10 @@ import CharacterListItem from './CharacterListItem.vue';
 export default {
     name: 'character-list',
     // this needs to match the tags flowing through to the main component
+    props: ['characters'],
     components: {
         'character-list-item': CharacterListItem
-    },
-
-    props: ['characters'],
-    
+    },    
 }
 </script>
 

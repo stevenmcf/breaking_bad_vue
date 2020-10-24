@@ -1,9 +1,5 @@
 <template>
-  <li v-on:click='handleClick'>
-    <img :src="character.img" alt="Image of 'character.name'"/>
-        <span>Name: {{ character.name }}</span>
-        <span>Nickname: {{ character.nickname }}</span>
-    </li>
+  <li v-on:click='handleClick'>{{ character.name }}</li>
 </template>
 
 <script>
@@ -14,10 +10,9 @@ export default {
  name: 'character-list-item',
  props: ['character'],
  methods: {
-     handleClick (){
-        //  emit from eventbus
-        eventBus.$emit('character-selected', this.character);
-     }
+     handleClick() {
+            eventBus.$emit('character-selected', this.character)
+        }
  }
 }
 
