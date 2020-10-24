@@ -1,11 +1,14 @@
 <template lang='html'>
 <main id="app">
-  <h1>Breaking Bad</h1>
+  <character-list></character-list>
 </main>
   
 </template>
 
 <script>
+
+import CharacterList from './components/CharacterList.vue'
+
 export default {
   name: 'app', 
   data () {
@@ -18,27 +21,28 @@ export default {
     }
   },
 
-  // components: {
-  //   'character-list': CharacterList,
+// once child component added, component needs to be confirmed in parent.
+  components: {
+    'character-list': CharacterList,
   //   'character-detail': CharacterDetail,
   //   'favourite-character': FavouriteCharacter,
   //   'episode-list': EpisodeList,
   //   'episode-detail': EpisodeDetail
-  // },
+  },
 
 
 // Use mounted to grab the data before app loads. 
   mounted() {
     // character fetch list
     fetch('https://www.breakingbadapi.com/api/characters')
-    .then(res => res.json())
-    .then(characters => this.characters = characters)
+      .then(res => res.json())
+      .then(characters => this.characters = characters)
 
 
     // episode fetch list
     fetch('https://www.breakingbadapi.com/api/episodes')
-    .then(res => res.json())
-    .then(episodes => this.episodes = episodes)
+      .then(res => res.json())
+      .then(episodes => this.episodes = episodes)
   },
 
 }
