@@ -1,7 +1,7 @@
 <template lang='html'>
 <main id="app">
   <character-list :characters="characters"> </character-list>
-  <character-detail></character-detail>
+  <character-detail v-if="selectedCharacter":character="selectedCharacter"></character-detail>
 </main>
   
 </template>
