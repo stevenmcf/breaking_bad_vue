@@ -21,6 +21,7 @@
 import CharacterList from './components/CharacterList.vue';
 import CharacterDetail from './components/CharacterDetail.vue'
 import FavouriteCharacters from './components/FavouriteCharacters.vue'
+import EpisodeList from './components/EpisodeList.vue'
 import { eventBus } from '@/main.js'
 
 export default {
@@ -30,8 +31,8 @@ export default {
       characters: [],
       selectedCharacter: null,
       favouriteCharacters: [],
-      // episodes: [],
-      // selectedEpisode: null, 
+      episodes: [],
+      selectedEpisode: null
     }
   },
 
@@ -39,9 +40,9 @@ export default {
   components: {
     'character-list': CharacterList,
     'character-detail': CharacterDetail,
-    'favourite-characters': FavouriteCharacters
-  //   'episode-list': EpisodeList,
-  //   'episode-detail': EpisodeDetail
+    'favourite-characters': FavouriteCharacters,
+    'episode-list': EpisodeList,
+    // 'episode-detail': EpisodeDetail
   },
 
 
