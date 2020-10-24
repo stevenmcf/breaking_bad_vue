@@ -2,16 +2,16 @@
 <main id="app">
   <h1>BreakingBad(code)</h1>
   <!-- <character-list :characters="characters"> </character-list> -->
-    <label for="selected_character">Who's it gonna be ?</label>
+    <label for="selected_character">Select a Character</label>
       <select id="selected_character" v-model="selectedCharacter">
           <option disabled value="">Select a character</option>
           <option v-for="(character, index) in characters" :character="character" :key="index" :value="character">{{ character.name}} </option>
       </select>
   
-    <character-detail v-if="selectedCharacter":character="selectedCharacter" :favouriteCharacters='FavouriteCharacter'></character-detail>
+    <character-detail v-if="selectedCharacter":character="selectedCharacter" :favouriteCharacters='favouriteCharacters'></character-detail>
 
     <favourite-characters :favouriteCharacters='favouriteCharacters'></favourite-characters>
-    
+
 </main>
   
 </template>
@@ -20,7 +20,7 @@
 
 import CharacterList from './components/CharacterList.vue';
 import CharacterDetail from './components/CharacterDetail.vue'
-import FavouriteCharacter from './components/FavouriteCharacter.vue'
+import FavouriteCharacters from './components/FavouriteCharacters.vue'
 import { eventBus } from '@/main.js'
 
 export default {
@@ -39,7 +39,7 @@ export default {
   components: {
     'character-list': CharacterList,
     'character-detail': CharacterDetail,
-    'favourite-characters': FavouriteCharacter,
+    'favourite-characters': FavouriteCharacters,
   //   'episode-list': EpisodeList,
   //   'episode-detail': EpisodeDetail
   },
@@ -62,7 +62,17 @@ export default {
       this.selectedCharacter = character
     })
 
+    eventBus.$on('favourite-selected', (character) => {
+      this.favouriteCharacters.unshift(character)
+    })
+
   },
+
+  // methods: {
+  //   addToFavourites: function() {
+  //     this.favouriteCharacters.push
+  //   }
+  // }
 
 }
 </script>
