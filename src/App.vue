@@ -39,7 +39,7 @@ export default {
   components: {
     'character-list': CharacterList,
     'character-detail': CharacterDetail,
-    'favourite-characters': FavouriteCharacters,
+    'favourite-characters': FavouriteCharacters
   //   'episode-list': EpisodeList,
   //   'episode-detail': EpisodeDetail
   },

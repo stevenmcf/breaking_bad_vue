@@ -5,13 +5,13 @@
     <p>Goes by: {{ character.nickname }}</p>
     <p>Occupation: {{ character.occupation.toString() }}</p>
     <img :src="character.img" :alt="'Image of' + character.name">
-     <button v-if="!favouriteCharacters.includes(character)" v-on:click='handleclick' :Value="character">Favourite ?</button>
+     <button v-if="!favouriteCharacters.includes(character)" v-on:click='handleClick' :Value="character">Your Favourite ?</button>
   </section>
 </template>
 
 <script>
 
-import { eventBus } from '@/main.js';
+import { eventBus } from '../main.js';
 
 export default {
     name: "character-detail",
@@ -19,9 +19,9 @@ export default {
 
     methods: {
         handleClick () {
-            eventbus.$emit('favourite-selected', this.character)
+            eventBus.$emit('favourite-selected', this.character)
         }
-    }
+    },
 };
 
 </script>
